@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Explora las cafeterias</title>
+	<link rel="stylesheet" type="text/css" href="css/Estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo_index.css">
+</head>
+<body>
+<header class="header">
+	<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">≡</label>
+		</div>
+		<div class="logo">
+			<img src="img/lo.png">
+		</div>
+		<nav class="menu">
+			<a href="index.html">Inicio</a>
+			<a href="#">Quienes somos</a>
+			<a href="#">Servicios</a>
+			<a href="#">Contacto</a>
+			<button class="login-btn" onclick="document.getElementById('modal').style.display='flex'">Iniciar Sesión</button>
+			<body>
+		</nav>
+	</div>
+</header>
+<div class="capa"></div>
+<!--     --------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="tematica.html">Diseño</a>
+			<a href="#">Tematica</a>
+			<a href="loca.html">Innovació</a>
+			<a href="#">Experiencia</a>
+			<a href="#">Youtube</a>
+			<a href="https://api.whatsapp.com/send/?phone=525627291205">Whatsapp</a>
+		</nav>
+		<label for="btn-menu">☺</label>
+	</div>
+</div>
+
+
+
+
+
+
+<!-- Modal para iniciar sesión -->
+  <div id="modal" class="modal" onclick="if(event.target === this) this.style.display='none'">
+    <div class="modal-content">
+      <h2>Registro</h2>
+      <form id="userForm" onsubmit="return showForm(event)">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo" required />
+        <input type="password" placeholder="Contraseña" required />
+
+        <label>¿Eres emprendedor o empresa?</label>
+        <select id="tipoUsuario" required>
+          <option value="">Selecciona una opción</option>
+          <option value="emprendedor">Emprendedor</option>
+          <option value="empresa">Empresa</option>
+        </select>
+        <button type="submit">Continuar</button>
+      </form>
+
+      <!-- Quiz emprendedor -->
+      <div class="quiz" id="quiz">
+      	<br>
+        <h3>¿Qué estilo de cafetería prefieres?</h3>
+        <select>
+          <option value="vintage">Vintage</option>
+          <option value="moderno">Moderno</option>
+          <option value="rústico">Rústico</option>
+        </select>
+        <button onclick="alert('Gracias por registrarte. Puedes explorar ideas ahora.')">Ver ideas</button>
+      </div>
+
+      <!-- Formulario empresa -->
+      <div class="empresa-form" id="empresaForm">
+        <h3>Introduce tu cafetería</h3>
+        <input type="text" placeholder="Nombre de la cafetería" />
+        <textarea placeholder="Describe brevemente tu cafetería..."></textarea>
+        <input type="file" />
+        <button onclick="alert('Tu cafetería ha sido enviada. ¡Gracias!')">Subir</button>
+      </div>
+    </div>
+  </div>
+</script>
+  <script>
+    function showForm(e) {
+      e.preventDefault();
+      const tipo = document.getElementById("tipoUsuario").value;
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("empresaForm").style.display = "none";
+
+      if (tipo === "emprendedor") {
+        document.getElementById("quiz").style.display = "block";
+      } else if (tipo === "empresa") {
+        document.getElementById("empresaForm").style.display = "block";
+      }
+    }
+  </script>
+
+  <br><br><br><br><br><br><br>
+  <section style="padding: 30px; background-color: #f9f5ef;">
+  <h2 style="text-align:center; color:#6f4e37;">Todas las ideas de cafeterias </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
+
+    <!-- Tarjeta 1 -->
+    <div style="background: #fff; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;">
+      <img src="https://www.bing.com/images/search?view=detailV2&ccid=bd6Zz6rd&id=F3138D55663EF94F7A600412FA83B69C77636633&thid=OIP.bd6Zz6rdBhS1pbEWDPFndwHaEb&mediaurl=https%3a%2f%2fmuchosnegociosrentables.com%2fwp-content%2fuploads%2f2019%2f04%2fmodelos-de-cafeterias.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.6dde99cfaadd0614b5a5b1160cf16777%3frik%3dM2Zjd5y2g%252foSBA%26pid%3dImgRaw%26r%3d0&exph=1075&expw=1800&q=cafeterias&simid=608056255140943141&FORM=IRPRST&ck=1EFFBBAD99B6D44E5D6FCF58F84B0DAF&selectedIndex=0&itb=0" style="width: 100%; height: 200px; object-fit: cover;" alt="Café Acogedor">
+      <div style="padding: 15px;">
+        <h3 style="margin: 0; color: #6f4e37;">Café Acogedor</h3>
+        <p>Un lugar ideal para relajarte con libros y un espresso artesanal.</p>
+        <h4 style="color: #3e2c22;">Reseñas</h4>
+        <ul style="padding-left: 18px;">
+          <li><strong>Ana:</strong> El ambiente es mágico y el café excelente.</li>
+          <li><strong>Luis:</strong> Volvería todos los fines de semana.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div style="background: #fff; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;">
+      <img src="https://source.unsplash.com/400x250/?coffee,industrial" style="width: 100%; height: 200px; object-fit: cover;" alt="Café Industrial">
+      <div style="padding: 15px;">
+        <h3 style="margin: 0; color: #6f4e37;">Café Industrial</h3>
+        <p>Diseño moderno con elementos de acero y madera reciclada.</p>
+        <h4 style="color: #3e2c22;">Reseñas</h4>
+        <ul style="padding-left: 18px;">
+          <li><strong>María:</strong> Perfecto para trabajar en laptop con buena música.</li>
+          <li><strong>Carlos:</strong> El cold brew es de otro nivel.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div style="background: #fff; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;">
+      <img src="https://source.unsplash.com/400x250/?coffee,garden" style="width: 100%; height: 200px; object-fit: cover;" alt="Café Jardín">
+      <div style="padding: 15px;">
+        <h3 style="margin: 0; color: #6f4e37;">Café Jardín</h3>
+        <p>Café al aire libre con plantas, flores y ambiente relajado.</p>
+        <h4 style="color: #3e2c22;">Reseñas</h4>
+        <ul style="padding-left: 18px;">
+          <li><strong>Lucía:</strong> Un paraíso verde en medio de la ciudad.</li>
+          <li><strong>David:</strong> Ideal para fotos y tardes de café con amigos.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+<br><br><br>
+<footer>
+	<img src="img/lo.png">
+	<p>Dirección</p>
+	<p>Austria No11, Centro Urbano,54700 Cautitlá´n Izcalli, Méx.</p>
+	<p>©Copyright 2019 Arquinova - All Rights Reserved</p>
+</footer>
+</body>
+</html>

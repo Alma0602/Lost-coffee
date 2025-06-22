@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lost Coffee</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f5f0;
+      color: #3e2c22;
+    }
+
+    header {
+      background-color: #d6c3b8;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .login-btn {
+      background-color: #6f4e37;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 8px;
+      color: #6f4e37;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .quiz, .empresa-form {
+      display: none;
+    }
+
+    button {
+      background-color: #6f4e37;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lost Coffee</h1>
+    <button class="login-btn" onclick="document.getElementById('modal').style.display='flex'">Iniciar Sesión</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Misión</h2>
+      <p>Inspirar a los emprendedores cafeteros a crear cafeterías únicas y memorables a través de ideas innovadoras y experiencias destacadas.</p>
+    </section>
+
+    <section>
+      <h2>Visión</h2>
+      <p>Ser la plataforma número uno de inspiración y conexión para cafeterías en América Latina.</p>
+    </section>
+
+    <section>
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Ofrecer inspiración visual clasificada por diseño, temática e innovación.</li>
+        <li>Conectar emprendedores con marcas y expertos.</li>
+        <li>Promover cafeterías auténticas y únicas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Valores</h2>
+      <ul>
+        <li>Creatividad</li>
+        <li>Autenticidad</li>
+        <li>Colaboración</li>
+        <li>Pasión por el café</li>
+      </ul>
+    </section>
+  </main>
+
+  <section style="padding: 30px; background-color: #f0ece6;">
+  <h2 style="text-align:center; color:#6f4e37;">Explora Ideas de Cafeterías</h2>
+
+  <!-- Filtros -->
+  <div style="text-align:center; margin: 20px 0;">
+    <button onclick="filtrar('todos')">Todos</button>
+    <button onclick="filtrar('tematica')">Temática</button>
+    <button onclick="filtrar('diseño')">Diseño</button>
+    <button onclick="filtrar('innovacion')">Innovación</button>
+    <button onclick="filtrar('experiencia')">Experiencia</button>
+  </div>
+
+  <!-- Galería estilo Pinterest -->
+  <div id="galeria" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    <div class="card tematica">
+      <img src="https://source.unsplash.com/300x200/?coffee,vintage" alt="Vintage Café" />
+      <h3>Café Vintage</h3>
+      <p>Estilo Temático</p>
+    </div>
+
+    <div class="card diseño">
+      <img src="https://source.unsplash.com/300x200/?coffee,minimalist" alt="Diseño Minimalista" />
+      <h3>Café Minimalista</h3>
+      <p>Diseño Moderno</p>
+    </div>
+
+    <div class="card innovacion">
+      <img src="https://source.unsplash.com/300x200/?coffee,robot" alt="Café Tecnológico" />
+      <h3>Café Automatizado</h3>
+      <p>Innovación</p>
+    </div>
+
+    <div class="card experiencia">
+      <img src="https://source.unsplash.com/300x200/?coffee,friends" alt="Café Social" />
+      <h3>Café de Conexión</h3>
+      <p>Experiencia al Cliente</p>
+    </div>
+
+    <div class="card diseño">
+      <img src="https://source.unsplash.com/300x200/?coffee,nature" alt="Diseño Natural" />
+      <h3>Café Verde</h3>
+      <p>Diseño Natural</p>
+    </div>
+
+    <div class="card tematica">
+      <img src="https://source.unsplash.com/300x200/?coffee,books" alt="Café Literario" />
+      <h3>Café Literario</h3>
+      <p>Estilo Temático</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Modal para iniciar sesión -->
+  <div id="modal" class="modal" onclick="if(event.target === this) this.style.display='none'">
+    <div class="modal-content">
+      <h2>Registro</h2>
+      <form id="userForm" onsubmit="return showForm(event)">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo" required />
+        <input type="password" placeholder="Contraseña" required />
+
+        <label>¿Eres emprendedor o empresa?</label>
+        <select id="tipoUsuario" required>
+          <option value="">Selecciona una opción</option>
+          <option value="emprendedor">Emprendedor</option>
+          <option value="empresa">Empresa</option>
+        </select>
+        <button type="submit">Continuar</button>
+      </form>
+
+      <!-- Quiz emprendedor -->
+      <div class="quiz" id="quiz">
+        <h3>¿Qué estilo de cafetería prefieres?</h3>
+        <select>
+          <option value="vintage">Vintage</option>
+          <option value="moderno">Moderno</option>
+          <option value="rústico">Rústico</option>
+        </select>
+        <button onclick="alert('Gracias por registrarte. Puedes explorar ideas ahora.')">Ver ideas</button>
+      </div>
+
+      <!-- Formulario empresa -->
+      <div class="empresa-form" id="empresaForm">
+        <h3>Introduce tu cafetería</h3>
+        <input type="text" placeholder="Nombre de la cafetería" />
+        <textarea placeholder="Describe brevemente tu cafetería..."></textarea>
+        <input type="file" />
+        <button onclick="alert('Tu cafetería ha sido enviada. ¡Gracias!')">Subir</button>
+      </div>
+    </div>
+  </div>
+<script>
+  function filtrar(categoria) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      if (categoria === 'todos' || card.classList.contains(categoria)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+  <script>
+    function showForm(e) {
+      e.preventDefault();
+      const tipo = document.getElementById("tipoUsuario").value;
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("empresaForm").style.display = "none";
+
+      if (tipo === "emprendedor") {
+        document.getElementById("quiz").style.display = "block";
+      } else if (tipo === "empresa") {
+        document.getElementById("empresaForm").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

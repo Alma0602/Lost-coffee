@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> LOST COFFEE</title>
+	<link rel="stylesheet" type="text/css" href="css/Estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo_index.css">
+</head>
+<body>
+<header class="header">
+	<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">≡</label>
+		</div>
+		<div class="logo">
+			<img src="img/lo.png">
+		</div>
+		<nav class="menu">
+			<a href="index.html">Inicio</a>
+			<a href="#">Quienes somos</a>
+			<a href="#">Servicios</a>
+			<a href="#">Contacto</a>
+			<button class="login-btn" onclick="document.getElementById('modal').style.display='flex'">Iniciar Sesión</button>
+			<body>
+		</nav>
+	</div>
+</header>
+<div class="capa"></div>
+<!--     --------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="tematica.html">Diseño</a>
+			<a href="#">Tematica</a>
+			<a href="#">Innovacion</a>
+			<a href="#">Experiencia</a>
+			<a href="#">Youtube</a>
+			<a href="https://api.whatsapp.com/send/?phone=525627291205">Whatsapp</a>
+		</nav>
+		<label for="btn-menu">☺</label>
+	</div>
+</div>
+<!-- Modal para iniciar sesión -->
+  <div id="modal" class="modal" onclick="if(event.target === this) this.style.display='none'">
+    <div class="modal-content">
+      <h2>Registro</h2>
+      <form id="userForm" onsubmit="return showForm(event)">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo" required />
+        <input type="password" placeholder="Contraseña" required />
+
+        <label>¿Eres emprendedor o empresa?</label>
+        <select id="tipoUsuario" required>
+          <option value="">Selecciona una opción</option>
+          <option value="emprendedor">Emprendedor</option>
+          <option value="empresa">Empresa</option>
+        </select>
+        <button type="submit">Continuar</button>
+      </form>
+
+      <!-- Quiz emprendedor -->
+      <div class="quiz" id="quiz">
+      	<br>
+        <h3>¿Qué estilo de cafetería prefieres?</h3>
+        <select>
+          <option value="vintage">Vintage</option>
+          <option value="moderno">Moderno</option>
+          <option value="rústico">Rústico</option>
+        </select>
+        <button onclick="alert('Gracias por registrarte. Puedes explorar ideas ahora.')">Ver ideas</button>
+      </div>
+
+      <!-- Formulario empresa -->
+      <div class="empresa-form" id="empresaForm">
+        <h3>Introduce tu cafetería</h3>
+        <input type="text" placeholder="Nombre de la cafetería" />
+        <textarea placeholder="Describe brevemente tu cafetería..."></textarea>
+        <input type="file" />
+        <button onclick="alert('Tu cafetería ha sido enviada. ¡Gracias!')">Subir</button>
+      </div>
+    </div>
+  </div>
+</script>
+  <script>
+    function showForm(e) {
+      e.preventDefault();
+      const tipo = document.getElementById("tipoUsuario").value;
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("empresaForm").style.display = "none";
+
+      if (tipo === "emprendedor") {
+        document.getElementById("quiz").style.display = "block";
+      } else if (tipo === "empresa") {
+        document.getElementById("empresaForm").style.display = "block";
+      }
+    }
+  </script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+<footer>
+	<img src="img/lo.png">
+	<p>Lost coffee</p>
+	<p>La inspiración que necesitabas</p>
+	<p>©Copyright 2019 Los coffee - All Rights Reserved</p>
+</footer>
+</body>
+</html>
